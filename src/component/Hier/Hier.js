@@ -30,7 +30,7 @@ const Hier = () => {
         setSelect(newSelect);
         const newTotal = [...salary, newSalary];
         setSalary(newTotal);
-        // console.log(totalSalaryList);
+
     }
     return (
         <div className="hier-container">

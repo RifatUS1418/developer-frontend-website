@@ -11,12 +11,13 @@ const Developer = (props) => {
             <div className="card-img">
                 <img src={img} alt="" />
             </div>
-            <p className="name">Name: {name}</p>
-            <p><small>Role: {role}</small></p>
-            <p><small>Age: {age}</small></p>
+            <h2 className="name">Name: {name}</h2>
+            <p>Role: {role}</p>
             <p><small>Rating: {rating}</small></p>
-            <p><small>Salary: ${salary}</small></p>
-            <button onClick={() => props.handleAddToSelect(name, salary)} className="btn-select">{element}Hire</button>
+            <p>Age: {age}</p>
+            <p>Salary per/hr: ${salary}</p>
+            <button onClick={() => props.handleAddToSelect(name, salary)} className="btn-select">{element} Hire</button>
+            <div className="icon"><i className="fab fa-facebook-square"></i> <i className="fab fa-linkedin"></i></div>
         </div>
     );
 };
