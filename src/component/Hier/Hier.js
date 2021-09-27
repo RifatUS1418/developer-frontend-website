@@ -7,7 +7,7 @@ import './Hier.css'
 const Hier = () => {
     const [developers, setDevelopers] = useState([]);
     const [select, setSelect] = useState([]);
-    const [salary, setSalary] = useState([])
+    const [salary, setSalary] = useState([]);
     useEffect(() => {
         fetch('./developer.json')
             .then(res => res.json())
@@ -24,7 +24,7 @@ const Hier = () => {
         setSalary(total);
     }, [])
 
-
+    // handle select count
     const handleAddToSelect = (name, newSalary) => {
         const newSelect = [...select, name];
         setSelect(newSelect);
@@ -37,7 +37,7 @@ const Hier = () => {
             <div className="developer-container">
                 {
                     developers.map(developer => <Developer
-                        key={developer.name}
+                        key={developer.id}
                         developer={developer}
                         handleAddToSelect={handleAddToSelect}
                     ></Developer>)
