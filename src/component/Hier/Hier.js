@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useState } from 'react/cjs/react.development';
+import { useEffect, useState } from 'react';
 import Developer from '../Developer/Developer';
 import Select from '../Select/Select';
 import './Hier.css'
@@ -26,12 +26,15 @@ const Hier = () => {
 
     // handle select count
     const handleAddToSelect = (name, newSalary) => {
-        const newSelect = [...select, name];
-        setSelect(newSelect);
-        const newTotal = [...salary, newSalary];
-        setSalary(newTotal);
+        const oldSelect = [...select];
+        if (oldSelect.indexOf(name) === -1) {
+            const newSelect = [...select, name];
+            setSelect(newSelect);
+            const newTotal = [...salary, newSalary];
+            setSalary(newTotal);
+        }
 
-    }
+    };
     return (
         <div className="hier-container">
             <div className="developer-container">
@@ -44,7 +47,7 @@ const Hier = () => {
                 }
             </div>
             <div className="select-container">
-                <Select select={select} salary={salary}></Select>
+                <Select select={select} salary={salary} selectDev={select}></Select>
             </div>
         </div>
     );
